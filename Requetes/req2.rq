@@ -1,0 +1,19 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX schema: <http://schema.org/>
+PREFIX geo: <http://rdf.insee.fr/geo/>
+PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX local: <http://localhost:3333/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dbprop: <http://dbpedia.org/property/>
+
+# Nombre d'établissements participant à la recherche par ville
+
+SELECT ?ville (count(?e) as ?nombre)
+WHERE 
+{
+    ?e dbprop:town ?ville.
+}
+GROUP BY ?ville
