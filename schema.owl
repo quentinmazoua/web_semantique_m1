@@ -11,8 +11,46 @@
 <rdf:RDF xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" xmlns:xsd="&xsd;" xmlns:owl="&owl;"
          xml:base="urn:x-hp:eg/" xmlns:eg="&eg;" xmlns="&eg;">
 
-<owl:Class rdf:about="schema:Organization">
+<!-- exemple tiré de schema.org -->
+<owl:class rdf:about="http://schema.org/Organization">
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+        <rdfs:subclassof rdf:resource="http://schema.org/Thing">
+        <rdfs:comment xml:lang="en">An organization such as a school, NGO, corporation, club, etc.</rdfs:comment>
+    </rdfs:subclassof>
+</owl:class>
 
-</owl:Class>
+<owl:class rdf:about="http://schema.org/Thing">
+    <rdfs:label xml:lang="en">Thing</rdfs:label>
+    <rdfs:comment xml:lang="en">The most generic type of item. </rdfs:comment>
+</owl:class>
+
+<!-- définition des propriétés -->
+<owl:datatypeproperty rdf:about="http://localhost:3333/SIREN">
+    <rdfs:label xml:lang="fr">SIREN</rdfs:label>
+    <rdfs:comment xml:lang="fr">Numéro SIREN d'une organisation</rdfs:comment>
+    <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"></rdfs:range>
+</owl:datatypeproperty>
+
+<owl:datatypeproperty rdf:about="http://localhost:3333/tranche_etp">
+    <rdfs:label xml:lang="fr">tranche_etp</rdfs:label>
+    <rdfs:comment xml:lang="fr">Nombre de salariés d'une organisation (intervalle)</rdfs:comment>
+    <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"></rdfs:range>
+</owl:datatypeproperty>
+
+<owl:datatypeproperty rdf:about="http://localhost:3333/categorie_juridique">
+    <rdfs:label xml:lang="fr">categorie_juridique</rdfs:label>
+    <rdfs:comment xml:lang="fr">Catégorie juridique d'une organisation</rdfs:comment>
+    <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"></rdfs:range>
+</owl:datatypeproperty>
+
+<owl:datatypeproperty rdf:about="http://localhost:3333/categorie_org">
+    <rdfs:label xml:lang="fr">categorie_org</rdfs:label>
+    <rdfs:comment xml:lang="fr">Type d'organisation</rdfs:comment>
+    <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"></rdfs:range>
+</owl:datatypeproperty>
 
 </rdf:RDF>
